@@ -1,0 +1,22 @@
+{
+  "name": "rawan-todo-app",
+  "version": "1.0.0",
+  "description": "Todo App Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GSG-G8/Rawan-Todo-App.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GSG-G8/Rawan-Todo-App/issues"
+  },
+  "homepage": "https://github.com/GSG-G8/Rawan-Todo-App#readme",
+  "devDependencies": {
+    "jest": "^25.1.0"
+  }
+}
