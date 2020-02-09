@@ -1,0 +1,223 @@
+
+*{
+    font-family: 'Marvel', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(245, 231, 211);
+}
+
+
+.content {
+    max-width: 650px;
+    margin: auto;
+    background: rgb(245, 231, 211);
+    padding: 100px;
+    margin-top: 100px;
+  }
+
+ /* .h{
+    font-size: 100px;
+  }*/
+
+h1{
+margin-left: 53px;
+font-size: 60px;
+}
+
+ h2{
+    margin-top: 7px;
+    font-size: 36px;
+    margin-left: -37px;
+}
+ 
+ul {
+    width: 777px;
+    margin-left: -497px;
+  }
+
+ul li {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    font-size: 2rem;
+    transition: 0.2s;
+   font-weight:bold;
+    /* make the list items unselectable */
+    /*-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;*/
+  }
+  ul li:hover {
+    background: rgba(0,0,0,0.3);
+  }
+  button{
+    width:10%;
+    height:1.5rem;
+    background-color:white;
+    margin-left: 1rem;
+    font-weight:bold;
+  }
+  
+  #add-todo{
+  
+  margin-left: 20rem;
+  margin-top: 6rem;
+  width: 528px;
+  margin-left: -17px;
+  }
+  
+  .marked {
+    text-decoration: line-through;
+    color: black;
+  }
+  
+  input[type=text]
+  {
+  margin: 0;
+    border: none;
+    border-radius: 0;
+    width: 45%;
+    padding: 10px;
+    float: left;
+    font-size: 25px;
+    margin-left: -1rem;
+    margin-top: 0rem;
+    border: solid 1px black;
+    border-radius: 50px;
+    width: 79%;
+  }
+  input[type=submit]
+  {
+    background-color: black;
+    color:white;
+    font-size: 2rem;
+    width: 45%;
+    height:70%;
+    border-radius: 38px;
+    margin-left: 58px;
+    margin-top: 10px;
+
+  }
+  #todo-container{
+  margin-top: 4rem;
+  margin-left: 28rem;
+  }
+  #sorted{
+    color: black;
+    margin-left: 25rem;
+    margin-top:5rem;
+    height:2rem;
+  }
+  
+  
+  @media screen and (max-width: 37.5rem)
+  {
+    * {
+    box-sizing: border-box;
+  }
+  body {
+    background-color:	red;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  .h{
+    font-size:  5rem;
+    margin-top: 5rem;
+    margin-right: 20rem;
+  }
+
+ 
+
+  ul li {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    font-size: 2rem;
+    transition: 0.2s;
+   font-weight:bold;
+    /* make the list items unselectable */
+    /*-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;*/
+  }
+  ul li:hover {
+    background: rgba(0,0,0,0.3);
+  }
+  button{
+    width:50%;
+    height:1.5rem;
+    color:black;
+    margin-left: 1rem;
+  }
+  
+  #add-todo{
+  
+  margin-left: 20rem;
+  margin-top: 6rem;
+  
+  }
+  input
+  {
+  margin: 0;
+    border: none;
+    border-radius: 0;
+    width: 55%;
+    padding: 10px;
+    float: left;
+    font-size: 25px;
+    margin-left: 3rem;
+  }
+  input[type=submit]
+  {
+  background-color: black;
+  color:white;
+  font-size: 2rem;
+  }
+  #todo-container{
+  margin-top: 4rem;
+  margin-left: 33rem;
+  }
+  
+  
+  }
+
+ /*.ul-style{
+     margin-top: 20px;
+     font-size: 24px;
+     list-style-type: none;
+
+     }
+
+#add-todo{
+    margin-top: 20px;
+}
+
+#itemToAdd{
+    border: 1px solid black;
+    border-radius: 20px;
+    height: 30px;
+    width:160px;
+}
+
+#addButton{
+    border: 1px solid black;
+    border-radius: 20px;
+    height: 26px;
+    width: 84px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.completed {
+    text-decoration: line-through;
+}
+
+/*#todo-container{
+    height: 346px;
+}*/

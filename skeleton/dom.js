@@ -3,82 +3,109 @@
 // it keeps everything inside hidden from the rest of our application
 (function() {
     // This is the dom node where we will keep our todo
-    var container = document.getElementById('todo-container');
-    var addTodoForm = document.getElementById('add-todo');
+    let container = document.getElementById('todo-container');
+    let addTodoForm = document.getElementById('add-todo');
   
-    var state = [
-      { id: -3, description: 'first todo' },
-      { id: -2, description: 'second todo' },
-      { id: -1, description: 'third todo' },
+    let state = [
+      { id: -3, description: 'Study for the exam', done: false },
+      { id: -2, description: 'Visiting my Grandme', done: false },
+      { id: -1, description: 'Prepare my lunch', done: false },
     ]; // this is our initial todoList
   
     // This function takes a todo, it returns the DOM node representing that todo
-    var createTodoNode = function(todo) {
-      var todoNode = document.createElement('li');
+    let createTodoNode = function(todo) {
+      let todoNode = document.createElement('li');
+      //todoNode.setAttribute("id", todo.id)
+
       // you will need to use addEventListener
   
       // add span holding description
-      let todoText = document.createElement('span');
-      todoText.textContent = todo.description;
-      todoNode.appendChild(todoText);
+      let descriptionSpa = document.createElement('span');
+      descriptionSpa.innerHTML = todo.description;
+      if(todo.done){
+        todoNode.className = "Marked";
+      }
+      todoNode.appendChild(descriptionSpa);
   
       // this adds the delete button
-      var deleteButtonNode = document.createElement('button');
+      let deleteButtonNode = document.createElement('button');
       deleteButtonNode.textContent = "Delete";
-      deleteButtonNode.setAttribute("class", "delete-btn");
-
-      
-      deleteButtonNode.addEventListener('click', function(event) {
-        var newState = todoFunctions.deleteTodo(state, todo.id);
+      deleteButtonNode.addEventListener('click', function(event){
+        let newState = todoFunctions.deleteTodo(state, todo.id);
         update(newState);
       });
+      //let txt = document.createTextNode("x")
+      //deleteButtonNode.appendChild(txt);
+
+      
+      //deleteButtonNode.addEventListener('click', function(event) {
+        //let idToDelete = event.target.parentElement.id;
+        //console.log(event.target.parentElement.id);
+        //let newState = todoFunctions.deleteTodo(state, idToDelete);
+       // update(newState);
+      //});
       todoNode.appendChild(deleteButtonNode);
   
       // add markTodo button
       let markTodoButtonNode = document.createElement("button");
-      markTodoButtonNode.setAttribute('class', 'mark-btn');
+      markTodoButtonNode.textContent = 'Mark';
 
-      if (todo.done == false) {
-        markTodoButtonNode.innerText = "Mark";
-        markTodoButtonNode.setAttribute("style", "background-color: grey; color:white;");
-        todoNode.setAttribute('style', 'opacity: 1;');
+      markTodoButtonNode.addEventListener('click', function(event){
+        let newState = todoFunctions.markTodo(state, todo.id);
+        update(newState);
+        console.log(newState);
+      });
+      todoNode.appendChild(markTodoButtonNode);
+      
+      //markTodoButtonNode.setAttribute('class', 'mark-btn');
 
-        if (todo.done === true) {
-          markTodoButtonNode.innerText = "Mark";
-          markTodoButtonNode.setAttribute("style", "background-color: #FfFf;");
-          todoNode.setAttribute('style', 'opacity: 0.5;');
-          todoText.setAttribute("style", "text-decoration: line-through;")
-        }
+      //if (todo.done == false) {
+        //markTodoButtonNode.innerText = "Mark";
+        //markTodoButtonNode.setAttribute("style", "background-color: grey; color:white;");
+        //todoNode.setAttribute('style', 'opacity: 1;');
 
-        markTodoButtonNode.addEventListener("click", function(event) {
-          var newState = todoFunctions.markTodo(state, todo.id);
-          update(newState);
-        });
-        todoNode.appendChild(markTodoButtonNode);
+        //if (todo.done === true) {
+          //markTodoButtonNode.innerText = "Mark";
+          //markTodoButtonNode.setAttribute("style", "background-color: #FfFf;");
+          //todoNode.setAttribute('style', 'opacity: 0.5;');
+          //todoText.setAttribute("style", "text-decoration: line-through;")
+        //}
+
+        //markTodoButtonNode.addEventListener("click", function(event) {
+          //let newState = todoFunctions.markTodo(state, todo.id);
+          //update(newState);
+        //});
+        //todoNode.appendChild(markTodoButtonNode);
     
 
   
-      // add classes for css
-  
+        // add classes for css
       return todoNode;
-    };
-  
+      };
+      /*return todoNode;
+    };*/
     // bind create todo form
-    if (addTodoForm) {
-      addTodoForm.addEventListener('submit', function(event) {
-        // https://developer.mozilla.org/en-US/docs/Web/Events/submit
-        // what does event.preventDefault do?
-        // what is inside event.target?
-        event.preventDefault();
-          let description = event.target.querySelector("input").value;
-  
-        //var description = '?'; // event.target ....
-  
-        // hint: todoFunctions.addTodo
-        var newState = todoFunctions.addTodo(state, description); // ?? change this!
-        update(newState);
-        document.getElementById("itemToAdd").value = ""; //Make sure
-      });
+      if (addTodoForm) {
+        addTodoForm.addEventListener('submit', function(event) {
+          // https://developer.mozilla.org/en-US/docs/Web/Events/submit
+          // what does event.preventDefault do?
+          // what is inside event.target?
+          event.preventDefault();
+          //let input = document.getElementById("item");
+          let desc = event.target.description.value;
+        
+          // hint: todoFunctions.addTodo
+          let object = {id:0, description:"", done:false};
+          object['description'] = desc;
+          
+          let newState = todoFunctions.addTodo(state, Object);
+          update (newState);
+          event.target.description.value = "";
+          //let newState= todoFunctions.addTodo(state,input.value);
+          //update(newState);
+          //document.getElementById("add-todo").value = "";
+        });
+      
     }
   
     // you should not need to change this function
@@ -100,4 +127,5 @@
     };
   
     if (container) renderState(state);
-  })();
+
+})();
