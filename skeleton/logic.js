@@ -28,23 +28,45 @@ var todoFunctions = {
       // returns a new array, it should contain todos with the newTodo added to the end.
       // add an id to the newTodo. You can use the generateId function to create an id.
       // hint: array.concat
-      return todoFunctions.cloneArrayOfObjects(todos).concat(newTodo) 
+
+      newTodo.id = todoFunctions.generateId();
+      return todos.concat(newTodo);
     },
+      //return todoFunctions.cloneArrayOfObjects(todos).concat(
+        //{
+          //id: this.generateId(),
+          //description: newTodo,
+          //done: false
+        //}
+      //) 
+    //},
+  
     deleteTodo: function(todos, idToDelete) {
       // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
       // return a new array, this should not contain any todo with an id of idToDelete
       // hint: array.filter
-      let deleteArr = todos.filter (todo => todo.id !== idToDelete);
-      return deleteArr;
+      return todos.filter(function(arr){
+        return arr.id != idToDelete;
+      });
+      //let deleteArr = todos.filter (todo => todo.id !== idToDelete);
+      //return deleteArr;
     },
     markTodo: function(todos, idToMark) {
       // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
       // in the new todo array, all elements will remain unchanged except the one with id: idToMark
       // this element will have its done value toggled
       // hint: array.map
-      let newTodo = todoFunctions.cloneArrayOfObjects(todos);
-      newTodo.map(function(obj){
-        if(obj.id == idToMark){
+      let todosCopy = todoFunctions.cloneArrayOfObjects(todos);
+      return todosCopy.map(function(arr){
+        if(arr.id == idToMark){
+          arr.done = !arr.done;
+          return arr;
+        } else {
+          return arr;
+        }
+      });
+      //newTodo.map(function(obj){
+        /*if(obj.id == idToMark){
           if(obj.done === false){
             obj.done = true;
           } else{
@@ -52,7 +74,7 @@ var todoFunctions = {
           }
         }
       })
-      return newTodo;
+      return newTodo;*/
     },
     sortTodos: function(todos, sortFunction) {
       // stretch goal! Do this last
