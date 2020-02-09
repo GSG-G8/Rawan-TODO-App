@@ -15,8 +15,7 @@
     // This function takes a todo, it returns the DOM node representing that todo
     let createTodoNode = function(todo) {
       let todoNode = document.createElement('li');
-      //todoNode.setAttribute("id", todo.id)
-
+   
       // you will need to use addEventListener
   
       // add span holding description
@@ -34,16 +33,7 @@
         let newState = todoFunctions.deleteTodo(state, todo.id);
         update(newState);
       });
-      //let txt = document.createTextNode("x")
-      //deleteButtonNode.appendChild(txt);
-
-      
-      //deleteButtonNode.addEventListener('click', function(event) {
-        //let idToDelete = event.target.parentElement.id;
-        //console.log(event.target.parentElement.id);
-        //let newState = todoFunctions.deleteTodo(state, idToDelete);
-       // update(newState);
-      //});
+  
       todoNode.appendChild(deleteButtonNode);
   
       // add markTodo button
@@ -56,34 +46,14 @@
         console.log(newState);
       });
       todoNode.appendChild(markTodoButtonNode);
-      
-      //markTodoButtonNode.setAttribute('class', 'mark-btn');
-
-      //if (todo.done == false) {
-        //markTodoButtonNode.innerText = "Mark";
-        //markTodoButtonNode.setAttribute("style", "background-color: grey; color:white;");
-        //todoNode.setAttribute('style', 'opacity: 1;');
-
-        //if (todo.done === true) {
-          //markTodoButtonNode.innerText = "Mark";
-          //markTodoButtonNode.setAttribute("style", "background-color: #FfFf;");
-          //todoNode.setAttribute('style', 'opacity: 0.5;');
-          //todoText.setAttribute("style", "text-decoration: line-through;")
-        //}
-
-        //markTodoButtonNode.addEventListener("click", function(event) {
-          //let newState = todoFunctions.markTodo(state, todo.id);
-          //update(newState);
-        //});
-        //todoNode.appendChild(markTodoButtonNode);
+  
     
 
   
         // add classes for css
       return todoNode;
       };
-      /*return todoNode;
-    };*/
+    
     // bind create todo form
       if (addTodoForm) {
         addTodoForm.addEventListener('submit', function(event) {
@@ -101,9 +71,7 @@
           let newState = todoFunctions.addTodo(state, Object);
           update (newState);
           event.target.description.value = "";
-          //let newState= todoFunctions.addTodo(state,input.value);
-          //update(newState);
-          //document.getElementById("add-todo").value = "";
+         
         });
       
     }
