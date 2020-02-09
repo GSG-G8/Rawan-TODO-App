@@ -48,8 +48,7 @@ var todoFunctions = {
       return todos.filter(function(arr){
         return arr.id != idToDelete;
       });
-      //let deleteArr = todos.filter (todo => todo.id !== idToDelete);
-      //return deleteArr;
+   
     },
     markTodo: function(todos, idToMark) {
       // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
@@ -65,16 +64,7 @@ var todoFunctions = {
           return arr;
         }
       });
-      //newTodo.map(function(obj){
-        /*if(obj.id == idToMark){
-          if(obj.done === false){
-            obj.done = true;
-          } else{
-            obj.done = false;
-          }
-        }
-      })
-      return newTodo;*/
+   
     },
     sortTodos: function(todos, sortFunction) {
       // stretch goal! Do this last
