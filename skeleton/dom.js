@@ -18,9 +18,16 @@
       // you will need to use addEventListener
   
       // add span holding description
+      let todoText = document.createElement('span');
+      todoText.textContent = todo.description;
+      todoNode.appendChild(todoText);
   
       // this adds the delete button
       var deleteButtonNode = document.createElement('button');
+      deleteButtonNode.textContent = "Delete";
+      deleteButtonNode.setAttribute("class", "delete-btn");
+
+      
       deleteButtonNode.addEventListener('click', function(event) {
         var newState = todoFunctions.deleteTodo(state, todo.id);
         update(newState);
@@ -28,6 +35,28 @@
       todoNode.appendChild(deleteButtonNode);
   
       // add markTodo button
+      let markTodoButtonNode = document.createElement("button");
+      markTodoButtonNode.setAttribute('class', 'mark-btn');
+
+      if (todo.done == false) {
+        markTodoButtonNode.innerText = "Mark";
+        markTodoButtonNode.setAttribute("style", "background-color: grey; color:white;");
+        todoNode.setAttribute('style', 'opacity: 1;');
+
+        if (todo.done === true) {
+          markTodoButtonNode.innerText = "Mark";
+          markTodoButtonNode.setAttribute("style", "background-color: #FfFf;");
+          todoNode.setAttribute('style', 'opacity: 0.5;');
+          todoText.setAttribute("style", "text-decoration: line-through;")
+        }
+
+        markTodoButtonNode.addEventListener("click", function(event) {
+          var newState = todoFunctions.markTodo(state, todo.id);
+          update(newState);
+        });
+        todoNode.appendChild(markTodoButtonNode);
+    
+
   
       // add classes for css
   
@@ -40,12 +69,15 @@
         // https://developer.mozilla.org/en-US/docs/Web/Events/submit
         // what does event.preventDefault do?
         // what is inside event.target?
+        event.preventDefault();
+          let description = event.target.querySelector("input").value;
   
-        var description = '?'; // event.target ....
+        //var description = '?'; // event.target ....
   
         // hint: todoFunctions.addTodo
-        var newState = []; // ?? change this!
+        var newState = todoFunctions.addTodo(state, description); // ?? change this!
         update(newState);
+        document.getElementById("itemToAdd").value = ""; //Make sure
       });
     }
   
