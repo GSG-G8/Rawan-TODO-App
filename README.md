@@ -2,7 +2,7 @@
 # Rawan-Todo-App
 Todo App Project 
 
-## Why wIe build this project?
+## Why I build this project?
 
 I build this project to help the people who want to manage their time and they want to achieve their goals easily. So with this app they can track their progress and they can be more manageable.
 
