@@ -186,38 +186,3 @@ ul li {
   
   }
 
- /*.ul-style{
-     margin-top: 20px;
-     font-size: 24px;
-     list-style-type: none;
-
-     }
-
-#add-todo{
-    margin-top: 20px;
-}
-
-#itemToAdd{
-    border: 1px solid black;
-    border-radius: 20px;
-    height: 30px;
-    width:160px;
-}
-
-#addButton{
-    border: 1px solid black;
-    border-radius: 20px;
-    height: 26px;
-    width: 84px;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-
-.completed {
-    text-decoration: line-through;
-}
-
-/*#todo-container{
-    height: 346px;
-}*/
