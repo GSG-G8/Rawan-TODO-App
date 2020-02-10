@@ -68,7 +68,7 @@
           let object = {id:0, description:"", done:false};
           object['description'] = desc;
           
-          let newState = todoFunctions.addTodo(state, Object);
+          let newState = todoFunctions.addTodo(state, desc);
           update (newState);
           event.target.description.value = "";
          
